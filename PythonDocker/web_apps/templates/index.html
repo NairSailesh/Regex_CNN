@@ -4,26 +4,19 @@
     <div class="row py-4">
         <div class="col-lg-6 mx-auto">
             <form action= "{{ url_for('GetClass')}}" method="post" enctype="multipart/form-data">
-                <label for="myfile">Select a file:</label>
-                <input type="file" id="myfile" name="myfile" class="btn btn-light m-0 rounded-pill px-4" accept=".png, .jpg, .jpeg">
-           
+                <b><label for="myfile">Select a file:</label></b>
+                <input type="file" id="myfile" name="myfile"  onchange="loadFile(event)" class="btn btn-light m-0 rounded-pill px-4" accept=".png, .jpg, .jpeg">
+                <br />
                          <br/>
-                <div class="image-section" style="display:none;"></div>
-                    <div class="img-preview">
-                        <div id="imagePreview">
-                        </div>
-                    </div>
-                    <br/>
-
-                {% if error is not none: %}
-                    <p><label name='error'> {{ error }}</label><br /></p>
-                {% endif %}
-                <input required type="submit" class="w3-button w3-green rounded-pill px-4"  id="btn-predict"value="Predict">
+                         <p><img id="output" width="300" height="300"/></p>                       
+               
+                <input required type="submit" class="w3-button w3-green rounded-pill px-4" id="btn-predict"value="Predict">
             </form>   
-                             
-            
+            {% if error is not none: %}
+            <p><label name='error'> {{ error }}</label></p>
+        {% endif %}
             {% if answer is not none: %}
-                <label name='answer'> {{ answer }}</label>
+                <b><label name='answer'> {{ answer }}</label> </b>
             {% endif %}
         </div>
     </div>
