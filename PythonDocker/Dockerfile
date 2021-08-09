@@ -1,6 +1,6 @@
 FROM python:3.8-slim-buster
 
-WORKDIR /python-docker
+WORKDIR /PythonDocker
 
 COPY requirements.txt requirements.txt
 RUN pip install -r requirements.txt
@@ -8,4 +8,4 @@ RUN pip install -r requirements.txt
 EXPOSE 5000
 COPY . .
 ENTRYPOINT [ "python" ]
-CMD [ "app_dock.py" ]
+CMD [ "app.py" ]
