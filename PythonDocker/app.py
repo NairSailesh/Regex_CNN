@@ -11,6 +11,9 @@ import  os
 
 model = tensorflow.keras.models.load_model("./web_apps/static/trained_seq_model.h5")
 
+# model = tensorflow.keras.models.load_model("./web_apps/static/inceptionv3_model.h5")
+
+
 static = os.path.join('web_apps', 'static')
 template = os.path.join('web_apps', 'templates')
 UPLOAD_FOLDER =  os.path.join('web_apps','uploads')
@@ -60,7 +63,9 @@ def process(img_path):
     p=model.predict(img)
     print("p.shape:",p.shape)
     print("p:",p)
-    predicted_class = labels[np.argmax(p[0], axis=-1)]
+    o=np.argmax(p, axis=-1)
+    print("o: ",o)
+    predicted_class = labels[o[0]]
     os.remove(img_path)
     print("classified label:",predicted_class)
     error=""
