@@ -14,6 +14,7 @@ Tried pre trained models
 - VGG16, 
 - VGG19, and 
 - InceptionV3
-
+## Screenshot of the Site:
+![Screenshot](PythonDocker\web_apps\static\Screenshot.png)
 ## Drawbacks
 The accuracy of the whole system majorly depends on the dataset used for classifying purposes. As trash can consist of a wide range of items that also appear different depending on how, when and for how long they have been disposed of, the dataset we use has some limitations. To increase the accuracy of our system, more real data of actual piles of garbage are also required to train our model better.
